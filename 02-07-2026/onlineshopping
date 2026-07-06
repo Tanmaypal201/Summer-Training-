@@ -1,0 +1,45 @@
+'''Create abstract Product class with private Product ID and Price.
+Child classes: Electronics (10%), Clothing (20%), Grocery (5%).
+Implement inheritance, encapsulation, abstraction and polymorphism.
+'''
+
+from abc import ABC, abstractmethod
+
+class Product(ABC):
+    prId=0
+    price=0
+    def __init__(self,prId,pri):
+        self.prId=prId
+        self.price=pri
+    @abstractmethod
+    def selling_price(self):
+        pass
+class Electronics(Product):
+    name=""
+    type=""
+    def __init__(self, prId,pri,name,type):
+        super().__init__(prId, pri)
+        self.name=name
+        self.type=type
+    def selling_price(self):
+        selpri= self.price*0.1
+        print(selpri)
+class Clothing(Product):
+    def __init__(self, prId,pri,name,type):
+        super().__init__(prId, pri)
+        self.name=name
+        self.type=type
+    def selling_price(self):
+        selpri= self.price*0.2
+        print(selpri)
+class Grocery(Product):
+    def __init__(self, prId,pri,name,type):
+        super().__init__(prId, pri)
+        self.name=name
+        self.type=type
+    def selling_price(self):
+        selpri= self.price*0.05
+        print(selpri)
+        
+e1=Grocery(2932,1212,"Mobile","tpp")
+e1.selling_price()
