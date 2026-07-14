@@ -1,19 +1,33 @@
 def Gross_of_family():
-    print("---------Gross of Family--------")
-    dict={}
-    while(True):
-        member=input("Enter the Family Member Name :")
-        salary=int(input(f"Enter the salary of {member} :"))
-        dict[member]=salary
-        ch=input("Enter the Choice of you want to add member who income is there then (y/n)")
-        if(ch!="y"):
-            print("Exit")
+    print("--------- Gross Salary of Family --------")
+
+    family = {}
+
+    while True:
+        member = input("Enter Family Member Name: ")
+        salary = float(input(f"Enter the Basic Salary of {member}: "))
+
+        family[member] = salary
+
+        ch = input("Do you want to add another member? (y/n): ")
+        if ch.lower() != 'y':
             break
-    tax=int(input("Enter the Amount of Tax :"))
-    sum=0
-    for i in dict:
-        sum+=dict[i]
-    grossal=sum-(sum*tax)/100
-    print("Gross Salary :",grossal)
+
+    da_percent = float(input("\nEnter DA Percentage: "))
+    hra_percent = float(input("Enter HRA Percentage: "))
+
+    total_basic = sum(family.values())
+
+    da = (total_basic * da_percent) / 100
+    hra = (total_basic * hra_percent) / 100
+
+    gross_salary = total_basic + da + hra
+
+    print("\n----------- Salary Details -----------")
+    print("Total Basic Salary :", total_basic)
+    print("DA Amount          :", da)
+    print("HRA Amount         :", hra)
+    print("Gross Salary       :", gross_salary)
+
 
 Gross_of_family()

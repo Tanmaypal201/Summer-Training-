@@ -30,5 +30,5 @@ if st.button("Predict"):
     prediction = model.predict([[house_size]])
     st.subheader(" Prediction Result")
     st.write(f"House Size : {house_size} sq ft")
-    st.write(f"Predicted Price : ₹{prediction:.2f} Lakhs")
+    st.write(f"Predicted Price : ₹{prediction[0]:.2f} Lakhs")
     st.success("Prediction Completed Successfully ✅")
